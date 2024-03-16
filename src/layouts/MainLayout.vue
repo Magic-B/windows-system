@@ -1,83 +1,35 @@
-<template>
-  <q-layout view="hHh lpR fFf" class="main">
-
-    <q-page-container id="desktop">
-      <router-view/>
-
-      <q-menu
-        touch-position
-        context-menu
-      >
-
-        <q-list dense style="min-width: 100px">
-          <q-item clickable v-close-popup>
-            <q-item-section>Open...</q-item-section>
-          </q-item>
-          <q-item clickable v-close-popup>
-            <q-item-section>New</q-item-section>
-          </q-item>
-          <q-separator/>
-          <q-item clickable>
-            <q-item-section>Preferences</q-item-section>
-            <q-item-section side>
-              <q-icon name="keyboard_arrow_right"/>
-            </q-item-section>
-
-            <q-menu anchor="top end" self="top start">
-              <q-list>
-                <q-item
-                  v-for="n in 3"
-                  :key="n"
-                  dense
-                  clickable
-                >
-                  <q-item-section>Submenu Label</q-item-section>
-                  <q-item-section side>
-                    <q-icon name="keyboard_arrow_right"/>
-                  </q-item-section>
-                  <q-menu auto-close anchor="top end" self="top start">
-                    <q-list>
-                      <q-item
-                        v-for="n in 3"
-                        :key="n"
-                        dense
-                        clickable
-                      >
-                        <q-item-section>3rd level Label</q-item-section>
-                      </q-item>
-                    </q-list>
-                  </q-menu>
-                </q-item>
-              </q-list>
-            </q-menu>
-
-          </q-item>
-          <q-separator/>
-          <q-item clickable v-close-popup>
-            <q-item-section>Quit</q-item-section>
-          </q-item>
-        </q-list>
-
-      </q-menu>
-    </q-page-container>
-
-    <q-footer class="bg-primary text-white">
-      <q-toolbar class="flex flex-center">
-        <div class="flex flex-center manager-icon-wrap">
-          <img src="public/icons/windows.png" alt="" class="icon-manager">
-        </div>
-        <div class="flex flex-center manager-icon-wrap">
-          <img src="public/icons/search.png" alt="" class="icon-manager">
-        </div>
-        <div class="flex flex-center manager-icon-wrap">
-          <img src="public/icons/settings.png" alt="" class="icon-manager">
-        </div>
-        <div class="flex flex-center manager-icon-wrap">
-          <img src="public/icons/folder.png" alt="" class="icon-manager">
-        </div>
-      </q-toolbar>
-    </q-footer>
-  </q-layout>
+<template lang='pug'>
+q-layout.main(view='hHh lpR fFf')
+  q-page-container#desktop
+    router-view
+    q-menu(touch-position context-menu)
+      q-list(dense style='min-width: 100px')
+        q-item(clickable v-close-popup)
+          q-item-section Open...
+        q-item(clickable v-close-popup)
+          q-item-section New
+        q-separator
+        q-item(clickable)
+          q-item-section Preferences
+          q-item-section(side)
+            q-icon(name='keyboard_arrow_right')
+          q-menu(anchor='top end' self='top start')
+            q-list
+              q-item(v-for='n in 3' :key='n' dense clickable)
+                q-item-section Submenu Label
+        q-separator
+          q-item(clickable v-close-popup)
+            q-item-section Quit
+  q-footer.bg-primary.text-white
+    q-toolbar.flex.flex-center
+      .flex.flex-center.manager-icon-wrap
+        img.icon-manager(src='public/icons/windows.png' alt='')
+      .flex.flex-center.manager-icon-wrap
+        img.icon-manager(src='public/icons/search.png' alt='')
+      .flex.flex-center.manager-icon-wrap
+        img.icon-manager(src='public/icons/settings.png' alt='')
+      .flex.flex-center.manager-icon-wrap
+        img.icon-manager(src='public/icons/folder.png' alt='')
 </template>
 
 <script>

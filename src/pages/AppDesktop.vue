@@ -1,7 +1,7 @@
 <template>
   <div class="flex column">
     <FileShortcut
-      v-for="item, index in shortcut"
+      v-for="(item, index) in shortcut"
       :key="index"
       :shortcut="item"
     />
@@ -11,7 +11,6 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import FileShortcut from 'components/FileShortcut.vue'
-import { Shortcut } from '../typescript/interfaces'
 
 export default defineComponent({
   components: { FileShortcut },
